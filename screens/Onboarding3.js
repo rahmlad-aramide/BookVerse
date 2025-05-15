@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, Image, Pressable, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, Text, Image, SafeAreaView, TouchableOpacity } from "react-native";
 import { styles } from "./Onboarding1";
 import images from "../constants/images";
 

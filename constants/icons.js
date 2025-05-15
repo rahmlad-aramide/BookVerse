@@ -8,6 +8,7 @@ import ActiveUser from "./../assets/icons/user-primary.png";
 import InactiveUser from "./../assets/icons/user.png";
 import bell from './../assets/icons/bell.png';
 import heart from './../assets/icons/heart.png';
+import star from './../assets/icons/star.png';
 
 export default {
   ActiveHome,
@@ -19,5 +20,6 @@ export default {
   ActiveUser,
   InactiveUser,
   heart,
-  bell
+  bell,
+  star
 };

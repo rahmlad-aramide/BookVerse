@@ -10,8 +10,10 @@ import {
   ImageBackground,
   Platform,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { COLORS } from "../constants/theme";
 
 const pattern = require("../assets/pattern.png");
 const arrowRight = require("../assets/arrow-right.png");
@@ -21,6 +23,7 @@ export default function Login({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const [isFocused, setIsFocused] = useState({ email: false, password: false });
 
   const handleValidation = () => {
@@ -34,12 +37,19 @@ export default function Login({navigation}) {
     return Object.keys(errors).length === 0;
   };
   const handleSubmit = () => {
+    setLoading(true);
     if (handleValidation()) {
       setEmail("");
       setPassword("");
-      navigation.navigate('Main')
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000);
+      setTimeout(() => {
+        navigation.navigate('Main')
+      }, 2001);
     } else {
-      console.log("Please enter a email and password");
+      console.log("Please enter your email and password");
+      setLoading(false)
     }
   };
 
@@ -115,7 +125,7 @@ export default function Login({navigation}) {
       </View>
       <View style={styles.loginContainer}>
         <Pressable style={styles.loginButton} onPress={handleSubmit}>
-          <Text style={[styles.login, styles.defaultFont]}>Login</Text>
+          <Text style={[styles.login, styles.defaultFont]}> {loading? <ActivityIndicator size={"small"} color={COLORS.white} />:"Login"}</Text>
         </Pressable>
         <View style={styles.dhacContainer}>
           <Text style={[styles.dhac, styles.defaultFont]}>

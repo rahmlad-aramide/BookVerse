@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Image, Pressable, SafeAreaView, TouchableOpacit
 import { styles } from "./Onboarding1";
 import images from "../constants/images";
 
-const image = require("../assets/home2.jpg");
 export default function Onboarding2({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
